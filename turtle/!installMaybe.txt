@@ -1,6 +1,3 @@
-gitgerk:
-pastebin get Y6qpyU4n gg
-
 //=== INCLUDED ===//
 -- Variable Quarry
 pastebin get GALNjiz2 quarry
