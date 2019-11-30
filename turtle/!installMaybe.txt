@@ -3,3 +3,5 @@
 pastebin get GALNjiz2 quarry
 
 pastebin get zkb4FY4L shapebuilder -- modified to handle fuelless turtles
+pastebin get W5ZkVYSi gitget -- gitget Gerkinfeltser ccStuff master
+pastebin get M0i8fDU5 platform

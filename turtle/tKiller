@@ -1,0 +1,32 @@
+tArgs = {...}
+side = tArgs[1] or "back"
+redstoneOn = rs.getInput(side)
+autoDrop = true
+leverState = false
+
+term.clear()
+term.setCursorPos(1,1)
+print("Killing...")
+print("ctrl+R to reboot")
+
+while redstoneOn == leverState do
+	turtle.select(1)
+	for i = 1, 300 do
+		turtle.attack()
+		sleep(0.1)
+	end
+	if autoDrop then
+		for i = 1, 16 do
+			turtle.select(i)
+			turtle.dropDown()
+		end
+	end
+end
+
+if leverState == false then
+	print(side.. "RS on, quiting")
+	return
+else
+	print(side.. "RS off, quiting")
+	return
+end

@@ -1,0 +1,5 @@
+while true do
+  turtle.attack()
+  turtle.suck()
+  turtle.turnLeft()
+end

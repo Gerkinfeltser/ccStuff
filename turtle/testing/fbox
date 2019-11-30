@@ -1,0 +1,64 @@
+local tArgs = {...}
+local length = tonumber(tArgs[1]) or 5
+local width = tonumber(tArgs[2]) or 3
+local height = tonumber(tArgs[3]) or 3
+local turnRight = true
+local slot = 1
+running = true
+
+term.clear()
+term.setCursorPos(1,1)
+print("1. Place turtle in leftmost block space")
+print("2. Make sure area for placing is clear.")
+print("2. Load turtle with materials for fortuning.")
+print("3. Type 'fbox <length> <width> <height>'")
+print("   * 5x3x3 if no input provided")
+print("4. Stand clear...")
+
+turtle.select(slot)
+-- Height
+for k = 1, height do
+  turtle.up()
+  -- Width
+  for j = 1, width do
+    -- Length
+    for i = 1, length do
+      if turtle.getItemCount(slot) == 0 then
+        for i=1, 17 do
+          if i <= 16 then
+            if turtle.getItemCount(i) > 0 then
+              slot = i
+              break
+            end
+          else
+            error("No more mats")
+          end
+        end
+        turtle.select(slot)
+        turtle.placeDown()
+      else
+        turtle.placeDown()
+      end
+      if i < length then
+        turtle.forward()
+      end
+    end
+    -- turn right or left
+    if j < width then
+      if turnRight == true then
+        turtle.turnRight()
+        turtle.forward()
+        turtle.turnRight()
+        turnRight = false
+      else
+        turtle.turnLeft()
+        turtle.forward()
+        turtle.turnLeft()
+        turnRight = true
+      end
+    end
+  end
+  -- turn around
+  turtle.turnRight()
+  turtle.turnRight()
+end
